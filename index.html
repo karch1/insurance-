@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>맞춤형 비대면 보장 분석 & 상담</title>
+    <title>비대면 보험 보장 분석 & 상담</title>
     
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,13 +11,18 @@
 
     <div class="pamphlet-wrapper">
         
-        <div class="zoom-notice">💡 이미지를 터치하시면 크게 보실 수 있습니다.</div>
         <div class="image-section" onclick="openModal()">
             <img src="images/1436722.png" alt="보험 보장 팜플렛 메인">
         </div>
 
+        <div class="top-action-bar">
+            <a href="#consultation-form" class="btn btn-consult-top">
+                <i class="icon">📋</i> 5초만에 상담 신청하기
+            </a>
+        </div>
+
         <section class="form-section" id="consultation-form">
-            <h2 class="form-title">📋 5초 비대면 상담 신청</h2>
+            <h2 class="form-title">💬 상담 정보 입력</h2>
             
             <form id="consultForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
@@ -28,13 +33,13 @@
                     <label for="clientPhone">연락처</label>
                     <input type="tel" id="clientPhone" class="form-input" placeholder="010-1234-5678" required>
                 </div>
-                <button type="submit" class="btn btn-submit">맞춤 상담 신청하기</button>
+                <button type="submit" class="btn btn-submit">상담 신청하기</button>
             </form>
 
             <div class="or-text">또는</div>
 
             <a href="https://open.kakao.com/o/YOUR_LINK" target="_blank" class="btn btn-kakao">
-                💬 카카오톡 실시간 오픈톡 상담
+                <img src="images/kakao_icon.png" alt="카톡 아이콘" class="kakao-icon"> 카카오톡 실시간 상담
             </a>
         </section>
 
