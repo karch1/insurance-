@@ -11,48 +11,47 @@
 
     <div class="pamphlet-wrapper">
         
-        <div class="image-section" onclick="openModal()">
-            <img src="images/1436722.png" alt="보험 보장 팜플렛 메인">
-        </div>
-
-        <div class="top-action-bar">
-            <a href="#consultation-form" class="btn btn-consult-top">
-                <i class="icon">📋</i> 5초만에 상담 신청하기
-            </a>
-        </div>
-
-        <section class="form-section" id="consultation-form">
-            <h2 class="form-title">💬 상담 정보 입력</h2>
+        <div id="step-main" class="page-step active">
+            <div class="image-section">
+                <img src="images/1436722.png" alt="보험 보장 팜플렛 메인" onclick="goToForm()">
+            </div>
             
-            <form id="consultForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="clientName">성함</label>
-                    <input type="text" id="clientName" class="form-input" placeholder="홍길동" required>
-                </div>
-                <div class="form-group">
-                    <label for="clientPhone">연락처</label>
-                    <input type="tel" id="clientPhone" class="form-input" placeholder="010-1234-5678" required>
-                </div>
-                <button type="submit" class="btn btn-submit">상담 신청하기</button>
-            </form>
+            <div class="action-bar">
+                <button type="button" class="btn btn-next" onclick="goToForm()">
+                    📋 비대면 상담 신청하기 (클릭)
+                </button>
+            </div>
+        </div>
 
-            <div class="or-text">또는</div>
 
-            <a href="https://open.kakao.com/o/YOUR_LINK" target="_blank" class="btn btn-kakao">
-                <img src="images/kakao_icon.png" alt="카톡 아이콘" class="kakao-icon"> 카카오톡 실시간 상담
-            </a>
-        </section>
+        <div id="step-form" class="page-step">
+            <div class="back-nav">
+                <button type="button" class="btn-back" onclick="goToMain()">⬅️ 팜플렛 다시 보기</button>
+            </div>
 
-    </div>
+            <section class="form-section">
+                <h2 class="form-title">💬 상담 정보 입력</h2>
+                
+                <form id="consultForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="clientName">성함</label>
+                        <input type="text" id="clientName" class="form-input" placeholder="홍길동" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">연락처</label>
+                        <input type="tel" id="clientPhone" class="form-input" placeholder="010-1234-5678" required>
+                    </div>
+                    <button type="submit" class="btn btn-submit">상담 신청 완료하기</button>
+                </form>
 
-    <div class="floating-banner">
-        <a href="https://open.kakao.com/o/YOUR_LINK" target="_blank" class="floating-btn float-talk">카톡 문의</a>
-        <a href="#consultation-form" class="floating-btn float-form">빠른 상담신청</a>
-    </div>
+                <div class="or-text">또는</div>
 
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg" src="images/1436722.png" alt="확대된 이미지">
+                <a href="https://open.kakao.com/o/YOUR_LINK" target="_blank" class="btn btn-kakao">
+                    카카오톡 실시간 직접 상담
+                </a>
+            </section>
+        </div>
+
     </div>
 
     <script src="js/script.js"></script>
