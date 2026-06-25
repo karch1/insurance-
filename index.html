@@ -12,8 +12,8 @@
     <div class="pamphlet-wrapper">
         
         <div id="step-main" class="page-step active">
-            <div class="image-section">
-                <img src="images/ins(4).png" alt="보험 보장 팜플렛 메인" onclick="goToForm()">
+            <div class="image-section" onclick="openModal()">
+                <img src="images/ins(4).png" alt="보험 보장 팜플렛 메인">
             </div>
             
             <div class="action-bar">
@@ -66,7 +66,7 @@
                                 <input type="checkbox" name="insurance_type" value="운전자,자동차"><span>운전자 · 자동차</span>
                             </label>
                             <label class="check-item">
-                                <input type="checkbox" name="insurance_type" value="기타"><span>기타</span>
+                                <input type="checkbox" name="insurance_type" value="기타기타(치아/화재/펫)"><span>기타(치아/화재/펫)</span>
                             </label>
                         </div>
                     </div>
@@ -87,6 +87,11 @@
             </section>
         </div>
 
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg" src="images/ins(4).png" alt="확대된 팜플렛 이미지">
     </div>
 
 
