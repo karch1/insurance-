@@ -37,10 +37,44 @@
                         <label for="clientName">성함</label>
                         <input type="text" id="clientName" class="form-input" placeholder="홍길동" required>
                     </div>
+                    
                     <div class="form-group">
                         <label for="clientPhone">연락처</label>
                         <input type="tel" id="clientPhone" class="form-input" placeholder="010-1234-5678" required>
                     </div>
+
+                    <div class="form-group">
+                        <label class="group-label">💡 어떤 부분이 가장 걱정되시나요? (중복 선택 가능)</label>
+                        <div class="checkbox-group">
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="사망"><span>사망</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="암"><span>암</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="뇌,심장"><span>뇌 · 심장</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="간병,치매"><span>간병 · 치매</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="저축,종신"><span>저축 · 종신</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="운전자,자동차"><span>운전자 · 자동차</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="insurance_type" value="펫"><span>펫 보험</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientMemo">✍️ 추가로 궁금하시거나 하실 말씀이 있다면?</label>
+                        <input type="text" id="clientMemo" class="form-input memo-input" placeholder="예: 기존 보험 분석을 받아보고 싶어요">
+                    </div>
+
                     <button type="submit" class="btn btn-submit">상담 신청 완료하기</button>
                 </form>
 
