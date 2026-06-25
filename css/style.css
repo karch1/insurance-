@@ -34,3 +34,7 @@ body { font-family: 'Noto Sans KR', sans-serif; background-color: #f5f7fa; color
 .btn-submit { background-color: #1e3a8a; color: white; margin-top: 10px; }
 .btn-kakao { background-color: #fee500; color: #191919; margin-top: 10px; }
 .or-text { text-align: center; font-size: 14px; color: #aaa; margin: 25px 0; }
+
+/* 인풋입력란 */
+.input-hint { font-size: 12px; color: #f97316; /* 따뜻한 주황색 계열 */
+    margin-top: 6px; font-weight: 500; padding-left: 4px; }
