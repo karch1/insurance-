@@ -2,42 +2,35 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Noto Sans KR', sans-serif; background-color: #f5f7fa; color: #333; }
 
-/* 팜플렛 컨테이너 */
 .pamphlet-wrapper { max-width: 500px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
-
-/* 화면 전환용 클래스 (기본적으론 숨김, active가 붙으면 보임) */
 .page-step { display: none; width: 100%; }
 .page-step.active { display: block; }
-
-/* [메인 화면] 이미지 스타일 */
-.image-section { width: 100%; }
 .image-section img { width: 100%; display: block; height: auto; cursor: pointer; }
-
-/* [메인 화면] 이미지 바로 하단 버튼 영역 */
 .action-bar { padding: 20px; background-color: #ffffff; text-align: center; }
-.btn-next { background-color: #2563eb; color: #ffffff; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); animation: pulse 2s infinite; }
+.btn-next { background-color: #2563eb; color: #ffffff; }
 
-/* [입력창 화면] 뒤로가기 네비게이션 */
 .back-nav { padding: 15px 20px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
 .btn-back { background: none; border: none; font-size: 15px; color: #64748b; cursor: pointer; font-weight: bold; }
+.form-section { padding: 30px 20px; background: #ffffff; }
+.form-title { font-size: 22px; font-weight: bold; margin-bottom: 25px; text-align: center; color: #1e3a8a; }
 
-/* [입력창 화면] DB 수집 Form 영역 */
-.form-section { padding: 40px 20px; background: #ffffff; min-height: calc(100vh - 53px); }
-.form-title { font-size: 22px; font-weight: bold; margin-bottom: 30px; text-align: center; color: #1e3a8a; }
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-size: 15px; margin-bottom: 8px; font-weight: 500; }
-.form-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; }
-.form-input:focus { border-color: #2563eb; }
+.form-group { margin-bottom: 24px; }
+.form-group label, .group-label { display: block; font-size: 15px; margin-bottom: 8px; font-weight: bold; color: #475569; }
+.form-input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline: none; transition: all 0.2s; }
+.form-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
 
-/* 버튼 공통 스타일 */
+/*  [신규] 체크박스 모바일 최적화 그리드 디자인 */
+.checkbox-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+.check-item { display: flex; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; cursor: pointer; user-select: none; transition: all 0.2s; }
+.check-item input[type="checkbox"] { width: 18px; height: 18px; margin-right: 10px; accent-color: #2563eb; cursor: pointer; }
+.check-item span { font-size: 14px; font-weight: 500; color: #334155; }
+.check-item:has(input:checked) { background: #eff6ff; border-color: #2563eb; } /* 체크됐을 때 부드러운 파란 배경 변환 */
+
+/*  [신규] 메모 입력 한 줄 텍스트박스 스타일 */
+.memo-input { background-color: #fafafa; border: 1px dashed #cbd5e1; }
+.memo-input:focus { background-color: #ffffff; border-style: solid; }
+
 .btn { display: block; width: 100%; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; border: none; cursor: pointer; }
 .btn-submit { background-color: #1e3a8a; color: white; margin-top: 10px; }
 .btn-kakao { background-color: #fee500; color: #191919; margin-top: 10px; }
 .or-text { text-align: center; font-size: 14px; color: #aaa; margin: 25px 0; }
-
-/* 버튼 시선 집중 효과 애니메이션 */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.98); }
-    100% { transform: scale(1); }
-}
