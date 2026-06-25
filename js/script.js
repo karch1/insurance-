@@ -89,3 +89,15 @@ function handleFormSubmit(event) {
         alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
     });
 }
+
+// 이미지 크게 보기 팝업 열기
+function openModal() {
+    document.getElementById('imageModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // 뒷배경 스크롤 방지
+}
+
+// 이미지 크게 보기 팝업 닫기
+function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+    document.body.style.overflow = 'auto'; // 스크롤 복구
+}
