@@ -1,0 +1,167 @@
+/* 기본 모바일 레이아웃 리셋 */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: 'Noto Sans KR', sans-serif; 
+    background-color: #f5f7fa; 
+    color: #333; 
+    padding-bottom: 80px; 
+}
+
+/* 팜플렛 컨테이너 */
+.pamphlet-wrapper { 
+    max-width: 500px; 
+    margin: 0 auto; 
+    background: #ffffff; 
+    min-height: 100vh; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+}
+
+/* 이미지 영역 및 안내 문구 */
+.image-section { 
+    position: relative; 
+    width: 100%; 
+    cursor: pointer; 
+}
+.image-section img { 
+    width: 100%; 
+    display: block; 
+}
+.zoom-notice { 
+    text-align: center; 
+    padding: 10px; 
+    background: #eef2f3; 
+    font-size: 13px; 
+    color: #666; 
+    font-weight: bold; 
+}
+
+/* DB 수집 Form 영역 */
+.form-section { 
+    padding: 30px 20px; 
+    background: #ffffff; 
+}
+.form-title { 
+    font-size: 20px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    color: #1e3a8a; 
+}
+.form-group { 
+    margin-bottom: 15px; 
+}
+.form-group label { 
+    display: block; 
+    font-size: 14px; 
+    margin-bottom: 5px; 
+    font-weight: 500; 
+}
+.form-input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    outline: none; 
+}
+.form-input:focus { 
+    border-color: #2563eb; 
+}
+
+/* 버튼 공통 스타일 */
+.btn { 
+    display: block; 
+    width: 100%; 
+    padding: 15px; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-align: center; 
+    text-decoration: none; 
+    border: none; 
+    cursor: pointer; 
+    margin-bottom: 10px; 
+}
+.btn-submit { 
+    background-color: #2563eb; 
+    color: white; 
+}
+.btn-kakao { 
+    background-color: #fee500; 
+    color: #191919; 
+}
+.or-text { 
+    text-align: center; 
+    font-size: 13px; 
+    color: #aaa; 
+    margin: 15px 0; 
+    position: relative; 
+}
+
+/* 하단 고정 플로팅 버튼 */
+.floating-banner { 
+    position: fixed; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100%; 
+    max-width: 500px; 
+    background: rgba(255,255,255,0.95); 
+    padding: 10px 20px; 
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1); 
+    display: flex; 
+    gap: 10px; 
+    z-index: 99; 
+}
+.floating-btn { 
+    flex: 1; 
+    padding: 12px; 
+    border-radius: 6px; 
+    text-align: center; 
+    font-weight: bold; 
+    text-decoration: none; 
+    font-size: 14px; 
+}
+.float-talk { 
+    background: #fee500; 
+    color: #191919; 
+}
+.float-form { 
+    background: #2563eb; 
+    color: white; 
+}
+
+/* 이미지 크게 보기 모달 팝업 */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.9); 
+    z-index: 999; 
+    justify-content: center; 
+    align-items: center; 
+    overflow-y: auto; 
+    padding: 20px 0; 
+}
+.modal-content { 
+    max-width: 95%; 
+    max-height: 90vh; 
+    object-fit: contain; 
+}
+.modal-close { 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    color: white; 
+    font-size: 30px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}

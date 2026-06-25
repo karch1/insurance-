@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맞춤형 비대면 보장 분석 & 상담</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="pamphlet-wrapper">
+        
+        <div class="zoom-notice">💡 이미지를 터치하시면 크게 보실 수 있습니다.</div>
+        <div class="image-section" onclick="openModal()">
+            <img src="https://via.placeholder.com/500x1200?text=Your+Insurance+Pamphlet+Image" alt="보험 보장 팜플렛 메인">
+        </div>
+
+        <section class="form-section" id="consultation-form">
+            <h2 class="form-title">📋 5초 비대면 상담 신청</h2>
+            
+            <form id="consultForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="clientName">성함</label>
+                    <input type="text" id="clientName" class="form-input" placeholder="홍길동" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">연락처</label>
+                    <input type="tel" id="clientPhone" class="form-input" placeholder="010-1234-5678" required>
+                </div>
+                <button type="submit" class="btn btn-submit">맞춤 상담 신청하기</button>
+            </form>
+
+            <div class="or-text">또는</div>
+
+            <a href="https://open.kakao.com/o/YOUR_LINK" target="_blank" class="btn btn-kakao">
+                💬 카카오톡 실시간 오픈톡 상담
+            </a>
+        </section>
+
+    </div>
+
+    <div class="floating-banner">
+        <a href="https://open.kakao.com/o/YOUR_LINK" target="_blank" class="floating-btn float-talk">카톡 문의</a>
+        <a href="#consultation-form" class="floating-btn float-form">빠른 상담신청</a>
+    </div>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg" src="https://via.placeholder.com/500x1200?text=Your+Insurance+Pamphlet+Image" alt="확대된 이미지">
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
