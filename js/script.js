@@ -1,3 +1,21 @@
+//파이어베이스 초기화 (보내주신 키값을 적용했습니다)
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDuCP7XEtUet0ABfgBpv-CVXc3aUOl586s",
+    authDomain: "insurance-6676d.firebaseapp.com",
+    projectId: "insurance-6676d",
+    storageBucket: "insurance-6676d.firebasestorage.app",
+    messagingSenderId: "397479316628",
+    appId: "1:397479316628:web:e4d70f9b3bf045c9183881"
+};
+
+// 파이어베이스 및 파이어스토어(DB) 연동 시작
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+
+// [화면 전환] 기능 함수
+
 // 입력창 화면으로 이동 (팜플렛 숨기고 입력창 띄우기)
 function goToForm() {
     document.getElementById('step-main').classList.remove('active');
@@ -12,7 +30,7 @@ function goToMain() {
     window.scrollTo(0, 0);
 }
 
-// 폼 제출 이벤트 (현재는 로컬 테스트용, 추후 파이어베이스 연동)
+// 📥 [데이터 전송] 폼 제출 이벤트 (파이어스토어 저장 실행)
 function handleFormSubmit(event) {
     event.preventDefault();
     
@@ -28,31 +46,25 @@ function handleFormSubmit(event) {
         selectedTypes.push(checkbox.value);
     });
 
-    // 3. 만약 체크박스를 하나도 안 골랐다면 기본 문구 세팅
-    const interestList = selectedTypes.length > 0 ? selectedTypes.join(', ') : "선택 안 함";
-
-    /* =========================================================
-       🔒 [추후 파이어베이스 연동 시 이 영역에 들어갈 실제 코드 예시]
-       =========================================================
-       db.collection("consultations").add({
-           name: name,
-           phone: phone,
-           interests: selectedTypes,
-           memo: memo,
-           date: new Date()
-       });
-    */
-    
-    // 4. 로컬 테스트용 알림창 (체크박스와 메모가 잘 수집되는지 눈으로 확인!)
-    alert(
-        `🎉 상담 신청 접수 완료! (로컬 테스트)\n\n` +
-        `• 성함: ${name}\n` +
-        `• 연락처: ${phone}\n` +
-        `• 관심 분야: ${interestList}\n` +
-        `• 한줄 메모: ${memo}`
-    );
-    
-    // 5. 입력창 완전히 비워주고 깔끔하게 첫 화면(팜플렛)으로 리턴
-    document.getElementById('consultForm').reset();
-    goToMain();
+    // 3. 파이어베이스 저장
+    db.collection("consultations").add({
+        name: name,
+        phone: phone,
+        interests: selectedTypes,
+        memo: memo,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp() // 신청한 실시간 날짜/시간 자동 기록
+    })
+    .then((docRef) => {
+        // 데이터 저장이 완전히 성공했을 때 실행되는 구역!
+        alert(`🎉 ${name}님, 맞춤 비대면 상담 신청이 완료되었습니다!`);
+        
+        // 입력창 완전히 비워주고 깔끔하게 첫 화면(팜플렛)으로 리턴
+        document.getElementById('consultForm').reset();
+        goToMain();
+    })
+    .catch((error) => {
+        // 혹시나 연결 오류나 권한 문제가 생겼을 때 브라우저 개발자 도구(F12)에 에러를 찍어줌
+        console.error("파이어베이스 저장 에러 발생: ", error);
+        alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+    });
 }
