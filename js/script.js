@@ -1,5 +1,4 @@
-//파이어베이스 초기화 (보내주신 키값을 적용했습니다)
-
+// [설정] 파이어베이스 초기화
 const firebaseConfig = {
     apiKey: "AIzaSyDuCP7XEtUet0ABfgBpv-CVXc3aUOl586s",
     authDomain: "insurance-6676d.firebaseapp.com",
@@ -9,7 +8,6 @@ const firebaseConfig = {
     appId: "1:397479316628:web:e4d70f9b3bf045c9183881"
 };
 
-// 파이어베이스 및 파이어스토어(DB) 연동 시작
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
@@ -30,7 +28,30 @@ function goToMain() {
     window.scrollTo(0, 0);
 }
 
-// 📥 [데이터 전송] 폼 제출 이벤트 (파이어스토어 저장 실행)
+
+// [전화번호] 실시간 자동 하이픈 기능 코드
+document.addEventListener("DOMContentLoaded", function() {
+    const phoneInput = document.getElementById("clientPhone");
+    
+    if (phoneInput) {
+        phoneInput.addEventListener("input", function(e) {
+            // 숫자만 남기고 나머지 문자 제거
+            let value = e.target.value.replace(/[^0-9]/g, "");
+            
+            // 실시간으로 010-0000-0000 형식 만들기
+            if (value.length < 4) {
+                e.target.value = value;
+            } else if (value.length < 8) {
+                e.target.value = value.substr(0, 3) + "-" + value.substr(3);
+            } else {
+                e.target.value = value.substr(0, 3) + "-" + value.substr(3, 4) + "-" + value.substr(7, 4);
+            }
+        });
+    }
+});
+
+
+// [데이터 전송] 폼 제출 이벤트 (파이어스토어 저장 실행)
 function handleFormSubmit(event) {
     event.preventDefault();
     
@@ -55,15 +76,15 @@ function handleFormSubmit(event) {
         createdAt: firebase.firestore.FieldValue.serverTimestamp() // 신청한 실시간 날짜/시간 자동 기록
     })
     .then((docRef) => {
-        // 데이터 저장이 완전히 성공했을 때 실행되는 구역!
-        alert(`🎉 ${name}님, 맞춤 비대면 상담 신청이 완료되었습니다!`);
+        // 데이터 저장이 완전히 성공했을 때 실행되는 구역
+        alert(`${name}님, 맞춤 비대면 상담 신청이 완료되었습니다.`);
         
         // 입력창 완전히 비워주고 깔끔하게 첫 화면(팜플렛)으로 리턴
         document.getElementById('consultForm').reset();
         goToMain();
     })
     .catch((error) => {
-        // 혹시나 연결 오류나 권한 문제가 생겼을 때 브라우저 개발자 도구(F12)에 에러를 찍어줌
+        // 연결 오류나 권한 문제가 생겼을 때 브라우저 개발자 도구(F12)에 에러 출력
         console.error("파이어베이스 저장 에러 발생: ", error);
         alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
     });
