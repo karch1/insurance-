@@ -17,8 +17,8 @@ const db = getFirestore(app);
 console.log("파이어베이스 챗봇 & DB 서랍 연결 성공");
 
 // 2. Dify API 설정 (본인 계정의 API Key로 교체 필수)
-const DIFY_API_KEY = "app-abcd1234efgh5678..."; 
-const DIFY_API_URL = "https://api.dify.ai/v1/chat-messages";
+const DIFY_API_KEY = ""; 
+const DIFY_API_URL = "";
 
 // HTML 요소 가져오기
 const btnSend = document.getElementById('btn-send');
