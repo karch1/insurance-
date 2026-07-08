@@ -195,34 +195,39 @@ body {
     50% { opacity: 1; }
 }
 
-/* 하단 대화 입력창 영역 */
+/* 하단 입력창 영역 - 터치하기 좋게 패딩 및 높이 대폭 확장 */
 .input-box {
     display: flex;
-    padding: 16px;
+    padding: 16px 20px;       /* 좌우, 상하 여백을 넓혀서 안정감 확보 */
     background: #ffffff;
     border-top: 1px solid #eaeaea;
-    gap: 8px;
+    gap: 10px;                /* 인풋과 전송 버튼 사이 간격 살짝 확대 */
 }
 
+/* 텍스트 입력창 - 시원시원하게 크기 업그레이드 */
 .input-box input {
     flex: 1;
     border: 1px solid #e0e0e0;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 0.95rem;
+    padding: 16px;            /* 내부 여백을 12px에서 16px로 키워 두툼하게 변경 */
+    border-radius: 10px;      /* 둥근 모서리도 부드럽게 매칭 */
+    font-size: 1.05rem;       /* 글자 크기도 키워서 입력 내용이 잘 보이도록 처리 */
     outline: none;
+    background-color: #fcfdfd; /* 살짝 투명한 배경으로 세련되게 */
 }
 
 .input-box input:focus {
     border-color: var(--primary-color);
+    background-color: #ffffff; /* 포커스되면 하얗게 반전 */
 }
 
+/* 전송 버튼 - 입력창 높이와 밸런스 맞춤 */
 .input-box button {
     background: var(--primary-color);
     color: white;
     border: none;
-    padding: 0 20px;
-    border-radius: 8px;
+    padding: 0 24px;          /* 버튼 좌우 폭을 넓혀서 터치 영역 확실히 확보 */
+    border-radius: 10px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s;
